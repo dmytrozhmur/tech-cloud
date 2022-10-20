@@ -1,0 +1,10 @@
+server:
+  port: 8083
+spring:
+  data:
+    cassandra:
+      keyspace-name: techcloud
+      schema-action: recreate
+      local-datacenter: datacenter1
+    rest:
+      base-path: /data-api/v1

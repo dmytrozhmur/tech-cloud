@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tech Cloud</title>
+    <style id="compiled-css" type="text/css">
+        .grid {
+        border:2px solid Chartreuse;
+        overflow:hidden;
+        padding:6px;
+        }
+
+        .col {
+            border:2px solid yellow;
+            float:left;
+            padding:6px;
+            margin-right:6px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Design your assembly!</h1>
+    <img th:src="@{/images/case.jpeg}"/>
+
+    <form method="post" th:object="${assembly}">
+        <div class="component-group" id="CPUs" th:unless="${cpu == null}">
+            <div class="grid">
+                <h3>Designate your CPU</h3>
+                <div class="col" th:each="constituent : ${cpu}">
+                    <input th:field="*{components}" type="checkbox"
+                           th:value="${constituent.id}"/>
+                    <span th:text="${constituent.name}">COMPONENT</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="component-group" id="video_cards" th:unless="${video_card == null}">
+            <div class="grid">
+                <h3>Choose your video card</h3>
+                <div class="col" th:each="constituent : ${video_card}">
+                    <input th:field="*{components}" type="checkbox"
+                           th:value="${constituent.id}"/>
+                    <span th:text="${constituent.name}">COMPONENT</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="component-group" id="motherboards" th:unless="${motherboard == null}">
+            <div class="grid">
+                <h3>Don't miss your motherboard</h3>
+                <div class="col" th:each="constituent : ${motherboard}">
+                    <input th:field="*{components}" type="checkbox"
+                           th:value="${constituent.id}"/>
+                    <span th:text="${constituent.name}">COMPONENT</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="component-group" id="sound_cards" th:unless="${sound_card == null}">
+            <div class="grid">
+                <h3>Specify your sound card</h3>
+                <div class="col" th:each="constituent : ${sound_card}">
+                    <input th:field="*{components}" type="checkbox"
+                           th:value="${constituent.id}"/>
+                    <span th:text="${constituent.name}">COMPONENT</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="component-group" id="cases" th:unless="${case == null}">
+            <div class="grid">
+                <h3>Determine your case</h3>
+                <div class="col" th:each="constituent : ${case}">
+                    <input th:field="*{components}" type="checkbox"
+                           th:value="${constituent.id}"/>
+                    <span th:text="${constituent.name}">COMPONENT</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="component-group" id="power_units" th:unless="${power_unit == null}">
+            <div class="grid">
+                <h3>Pick your power unit</h3>
+                <div class="col" th:each="constituent : ${power_unit}">
+                    <input th:field="*{components}" type="checkbox"
+                           th:value="${constituent.id}"/>
+                    <span th:text="${constituent.name}">COMPONENT</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="component-group" id="memory_modules" th:unless="${memory_module == null}">
+            <div class="grid">
+                <h3>Decide on your memory module</h3>
+                <div class="col" th:each="constituent : ${memory_module}">
+                    <input th:field="*{components}" type="checkbox"
+                           th:value="${constituent.id}"/>
+                    <span th:text="${constituent.name}">COMPONENT</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="component-group" id="adapters" th:unless="${adapter == null}">
+            <div class="grid">
+                <h3>Take your adapter</h3>
+                <div class="col" th:each="constituent : ${adapter}">
+                    <input th:field="*{components}" type="checkbox"
+                           th:value="${constituent.id}"/>
+                    <span th:text="${constituent.name}">COMPONENT</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="component-group" id="hard_drives" th:unless="${hard_drive == null}">
+            <div class="grid">
+                <h3>Select your hard drive</h3>
+                <div class="col" th:each="constituent : ${hard_drive}">
+                    <input th:field="*{components}" type="checkbox"
+                           th:value="${constituent.id}"/>
+                    <span th:text="${constituent.name}">COMPONENT</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="component-group" id="cooling_systems" th:unless="${cooling_system == null}">
+            <div class="grid">
+                <h3>Appoint your cooling system</h3>
+                <div class="col" th:each="constituent : ${cooling_system}">
+                    <input th:field="*{components}" type="checkbox"
+                           th:value="${constituent.id}"/>
+                    <span th:text="${constituent.name}">COMPONENT</span>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h3>Name your assembly:</h3>
+            <input type="text" th:field="*{name}">
+            <br/>
+            <button>Submit your assembly</button>
+        </div>
+    </form>
+</body>
+</html>
